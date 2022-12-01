@@ -13,6 +13,7 @@ const input3 = document.getElementById("items3");
 const input4 = document.getElementById("items4");
 
 const score = document.getElementById("score");
+const numberLife = document.getElementById("number-life");
 
 let state = {
   point: 0,
@@ -24,17 +25,11 @@ let question = {
   possibility: null,
 };
 
-// const vie = [1, 2, 3];
-// console.log(vie.length);
-
-const resetQuestion = () => {
-  flag = null;
-  answer = null;
-  possibility = null;
-  console.log(question);
+const life = {
+  life: 3,
 };
-
 score.innerHTML = state.point;
+numberLife.innerHTML = life.life;
 
 const allInput = document.querySelectorAll(`input[name="countrie"]`);
 
@@ -50,6 +45,34 @@ const generateQuestion = (arrayCountries) => {
 };
 
 const createQuestion = (arrayCountries) => {
+  createOneQuestion(arrayCountries);
+
+  questionCard(question);
+
+  allInput.forEach((input) => {
+    input.addEventListener("click", () => {
+      if (input.value === question.answer) {
+        state.point++;
+        score.innerHTML = state.point;
+        createOneQuestion(arrayCountries);
+        questionCard(question);
+      } else {
+        deleteLife();
+        if (life.life === 0) {
+          numberLife.innerHTML = life.life;
+        } else if (life.life < 0) {
+          alert(`Vous avez trouvé ${state.point} pays`);
+          location.reload();
+        } else {
+          numberLife.innerHTML = life.life;
+          console.log(life.life);
+        }
+      }
+    });
+  });
+};
+
+const createOneQuestion = (arrayCountries) => {
   const random = Math.floor(Math.random() * arrayCountries.length);
 
   const countrie = arrayCountries[random];
@@ -68,45 +91,6 @@ const createQuestion = (arrayCountries) => {
     answer: countrie.translations.fra.common,
     possibility,
   };
-  console.log(question);
-  questionCard(question);
-
-  allInput.forEach((input) => {
-    input.addEventListener("click", () => {
-      if (input.value === question.answer) {
-        state.point++;
-        score.innerHTML = state.point;
-        console.log("bon");
-        question = {
-          flag: null,
-          answer: null,
-          possibility: null,
-        };
-        console.log(question);
-        const random = Math.floor(Math.random() * arrayCountries.length);
-
-        const countrie = arrayCountries[random];
-
-        const possibility = [];
-        for (let index = 0; index < 3; index++) {
-          const otherCountrie =
-            arrayCountries[Math.floor(Math.random() * arrayCountries.length)];
-          possibility.push(otherCountrie.translations.fra.common);
-        }
-        possibility.push(countrie.translations.fra.common);
-        possibility.sort();
-
-        question = {
-          flag: countrie.flags.png,
-          answer: countrie.translations.fra.common,
-          possibility,
-        };
-        questionCard(question);
-      } else {
-        console.log("faux");
-      }
-    });
-  });
 };
 
 const questionCard = ({ flag, possibility }) => {
@@ -123,4 +107,8 @@ const questionCard = ({ flag, possibility }) => {
 
   answer4.innerHTML = possibility[3];
   input4.setAttribute("value", possibility[3]);
+};
+
+const deleteLife = () => {
+  life.life--;
 };
