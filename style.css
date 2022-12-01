@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "font-1";
+    src: url(./font/Ubuntu-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "font-1";
+}
+
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 6% 10%;
+    text-align: center;
+    color: white;
+    background: black;
+    font-size: 1.3em;
+    transition: 0.3s ease;
+}
+
+label:hover {
+    background: #f5f8f0;
+    /* border-color: transparent; */
+    color: black;
+}
+
+#section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #f5f8f0;
+}
+
+h1 {
+    margin: 2% auto;
+    font-size: 3.5em;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    background: black;
+    height: 5px;
+    width: 200px;
+    position: absolute;
+    bottom: -40px;
+    left: 29%;
+}
+
+#img-flag {
+    width: 25%;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 7px 0 black;
+}
+
+.answer-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    width: 50%;
+    margin: 0 auto;
+    gap: 50px
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 3% auto;
+    font-size: 1.3em;
+}
