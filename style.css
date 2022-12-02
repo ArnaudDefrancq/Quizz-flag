@@ -170,14 +170,25 @@ h1::after {
 
 @media screen and (max-width: 350px) {
     #img-flag {
-        width: 70%;
+        width: 80%;
     }
 
     label {
         padding: 5% 0;
+        height: 70px;
+    }
+
+    .answer-container {
+        gap: 30px;
+        /* height: 50%; */
     }
 
     .info-container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 300px) {
+    #img-flag {
         width: 90%;
     }
 }
