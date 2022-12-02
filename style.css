@@ -19,7 +19,7 @@ label {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 15px;
-    padding: 6% 10%;
+    padding: 3% 0%;
     text-align: center;
     color: white;
     background: black;
@@ -29,7 +29,6 @@ label {
 
 label:hover {
     background: #f5f8f0;
-    /* border-color: transparent; */
     color: black;
 }
 
@@ -52,7 +51,7 @@ h1::after {
     height: 5px;
     width: 200px;
     position: absolute;
-    bottom: -40px;
+    bottom: -50%;
     left: 29%;
 }
 
@@ -77,4 +76,108 @@ h1::after {
     width: 50%;
     margin: 3% auto;
     font-size: 1.3em;
+}
+
+@media screen and (max-width: 1300px) {
+    #img-flag {
+        width: 35%;
+    }
+    .answer-container {
+        margin-top: 30px;
+        width: 60%;
+    }
+    .info-container {
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 1074px) {
+    #img-flag {
+        width: 35%;
+    }
+    .answer-container {
+        grid-template-rows: 2fr 2fr;
+    }
+    .info-container {
+        margin-top: 50px;
+    }
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #img-flag {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #img-flag {
+        width: 40%;
+    }
+
+    .answer-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #img-flag {
+        width: 50%;
+    }
+
+    .answer-container {
+        width: 80%;
+        grid-template-rows: 100px 100px;
+    }
+
+    
+}
+@media screen and (max-width: 550px) {
+    #img-flag {
+        width: 50%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h1::after {
+        display: none;
+    }
+
+    .answer-container {
+        width: 80%;
+        grid-template-columns: 2fr;
+        grid-template-rows: 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+    #img-flag {
+        width: 60%;
+    }
+
+    .answer-container {
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    #img-flag {
+        width: 70%;
+    }
+
+    label {
+        padding: 5% 0;
+    }
+
+    .info-container {
+        width: 90%;
+    }
 }

@@ -61,7 +61,8 @@ const createQuestion = (arrayCountries) => {
         if (life.life === 0) {
           numberLife.innerHTML = life.life;
         } else if (life.life < 0) {
-          alert(`Vous avez trouvé ${state.point} pays`);
+          alert(`Vous avez trouvé ${state.point} pays
+la réponse était : ${question.answer}`);
           location.reload();
         } else {
           numberLife.innerHTML = life.life;
